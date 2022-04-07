@@ -161,16 +161,20 @@ inputRight.onclick = function (e) {
     taReview.style.borderRightStyle = borde;
  };
 
-inputBottom.oninput = function (e) {
+inputBottom.onclick = function (e) {
     taReview.style.borderStyle ="hidden";
     taReview.style.borderBottomStyle = borde;
 };
 
 alphaBorder.oninput = function (e) {
-    taReview.style.opacity = alphaBorder.value / 100;
+    /* taReview.style.opacity = alphaBorder.value / 100; */
+    var r=parseInt(borderColor.value.substring(1,3), 16);
+    var g=parseInt(borderColor.value.substring(3,5), 16);
+    var b=parseInt(borderColor.value.substring(5,7), 16);
+    taReview.style.borderColor = "rgb("+r+", "+g+", "+b+", "+alphaBorder.value/100+")";
 };
 
 opacity1.onclick = function (e) {
-    taReview.style.opacity = 1;
-    alphaBorder.value = 100;
+    alphaBorder.value=100;
+    taReview.style.borderColor=borderColor.value;
 };
